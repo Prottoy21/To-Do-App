@@ -15,7 +15,6 @@ const button = document
       deleteBtn.classList.add("delete-btn");
       deleteBtn.onclick = function () {
         listContainer.removeChild(li);
-        saveData();
       };
 
       li.appendChild(deleteBtn);
@@ -31,7 +30,21 @@ const saveData = function () {
 };
 
 function showTask() {
-  listContainer.innerHTML = localStorage.getItem("data") || "";
+  listContainer.innerHTML = localStorage.getItem("data");
+  reattachDeleteHandlers();
+}
+
+function reattachDeleteHandlers() {
+  const items = listContainer.querySelectorAll("li");
+  items.forEach((li) => {
+    const deleteBtn = li.querySelector(".delete-btn");
+    if (deleteBtn) {
+      deleteBtn.onclick = function () {
+        listContainer.removeChild(li);
+        saveData();
+      };
+    }
+  });
 }
 
 showTask();
