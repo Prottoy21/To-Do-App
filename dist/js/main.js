@@ -15,6 +15,7 @@ const button = document
       deleteBtn.classList.add("delete-btn");
       deleteBtn.onclick = function () {
         listContainer.removeChild(li);
+        saveData();
       };
 
       li.appendChild(deleteBtn);
@@ -22,4 +23,15 @@ const button = document
     }
     input.value = "";
 
+    saveData();
   });
+
+const saveData = function () {
+  localStorage.setItem("data", listContainer.innerHTML);
+};
+
+function showTask() {
+  listContainer.innerHTML = localStorage.getItem("data") || "";
+}
+
+showTask();
