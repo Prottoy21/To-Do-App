@@ -82,16 +82,37 @@ body {
 .task-list li .delete-btn {
   color: #000;
   font-weight: bold;
-  width: 20px;
   font-size: 18px;
   cursor: pointer;
   border: 1px solid #000;
   background: #fff;
   border-radius: 50%;
-  margin-left: 10px;
+  margin-left: 100px;
+  text-align: center;
 }
 
 .task-list li .delete-btn:hover {
   color: #ff0000;
   transition: 0.3s ease-in;
+}
+
+
+.delete-btn, .edit-btn {
+  margin-left: 10px;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+.edit-btn {
+  background-color: #f0ad4e;
+  border: none;
+  color: white;
+  border-radius: 3px;
+}
+
+.delete-btn {
+  background-color: #d9534f;
+  border: none;
+  color: white;
+  border-radius: 3px;
 }
